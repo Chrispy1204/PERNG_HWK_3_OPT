@@ -1,8 +1,6 @@
 """
 Estimate the lowest cost mix of how much wind, solar and energy storage would be required to run the entirety or ERCOT in 2022
-
 GW is 1000000 kW
-
 wind costs about $1.2B/GW to build
 """
 
@@ -10,6 +8,8 @@ from __future__ import division
 from pyomo.environ import *
 from pyomo.opt import SolverFactory
 import json
+
+#added a comment for First Change
 
 ## constants and assumptions
 # capital costs for solar, and energy storage systems
