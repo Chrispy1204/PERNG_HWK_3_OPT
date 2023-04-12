@@ -103,3 +103,6 @@ model.solutions.store_to(status)
 status.write(filename='PERNG_HWK_3_OPT_OUTPUTS.json', format='json')
 
 # pyomo solve PERNG_HWK_3_OPT.py --solver=glpk
+
+#least cost for wind = 102GW
+#least cost for solar = 277GW
