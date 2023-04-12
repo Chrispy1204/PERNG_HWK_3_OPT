@@ -9,7 +9,6 @@ from pyomo.environ import *
 from pyomo.opt import SolverFactory
 import json
 
-#added a comment for First Change
 
 ## constants and assumptions
 # capital costs for solar, and energy storage systems
@@ -25,8 +24,6 @@ ESS_eta_d        		= 0.9       # ESS discharging efficiency, looses 10% when dis
 ESS_p_var_cost          = 5000      # ESS discharge cost $/GWh
 
 curtailment_cost        = 1000      # curtailment penalty $/GWh
-
-
 #------------------------------------------------------------------------------------------
 #start creating model here
 
@@ -55,7 +52,7 @@ model.ESS_c             = Var(model.t, domain = NonNegativeReals)
 model.ESS_d             = Var(model.t, domain = NonNegativeReals)
 model.curt              = Var(model.t, domain = NonNegativeReals)
 
-#------------------------------------------------------------------
+#--------------------------------------------------------------------------------------------
 # define objective function and contraints
 # objective 
 def obj_expression(model):
@@ -89,10 +86,8 @@ def SOC_const(model, i):
     return model.ESS_SOC[i] == model.ESS_SOC[i-1] + (model.ESS_c[i] * ESS_eta_c) - (model.ESS_d[i]/ESS_eta_d) 
 model.SOC_const = Constraint(model.t, rule = SOC_const)
 
-
 # create instance of the model
 model = model.create_instance(data)
-
 
 # solve
 opt = SolverFactory('glpk')
